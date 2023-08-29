@@ -1,14 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
-Attack Fireball = new("Fireball", 25);
-Attack CompassAir = new("Compass Needle: Air Type", 50);
-Attack CompassAnn = new("Compass Needle: Annihilation Type", 75);
+Fighter BadGuy = new("Akaza");
+Ranged BadArcher = new("Dark Elf");
+Mage BadMage = new("Avalache");
 
-Enemy BadGuy = new("Akaza");
-
-BadGuy.AttackList.Add(Fireball);
-BadGuy.AttackList.Add(CompassAir);
-BadGuy.AttackList.Add(CompassAnn);
-
-BadGuy.RandomAttack();
+BadGuy.PerformAttack(BadArcher, BadGuy.AttackList[1] );
+BadGuy.Rage(BadMage);
+BadArcher.PerformAttack(BadGuy, BadArcher.AttackList[0]);
+BadArcher.Dash();
+BadArcher.PerformAttack(BadGuy, BadArcher.AttackList[0]);
+BadMage.PerformAttack(BadGuy, BadMage.AttackList[0]);
+BadMage.Heal(BadArcher);
+BadMage.Heal(BadMage);
